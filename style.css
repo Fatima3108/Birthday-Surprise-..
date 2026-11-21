@@ -1,0 +1,481 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #08090d;
+    --navy: #101827;
+    --gold: #d8b56d;
+    --white: #ffffff;
+    --gray: #aaaab2;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* OPENING */
+
+.opening {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+
+    background:
+        radial-gradient(circle at top, #26344b 0%, transparent 50%),
+        linear-gradient(150deg, #08090d, #101827, #08090d);
+}
+
+.opening-content {
+    max-width: 500px;
+    animation: fadeUp 1.5s ease;
+}
+
+.star {
+    color: var(--gold);
+    font-size: 50px;
+    margin-bottom: 25px;
+    animation: glow 2s infinite alternate;
+}
+
+.small-text {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.opening h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 11vw, 65px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.opening h1 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.opening-desc {
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 35px;
+}
+
+.open-btn {
+    padding: 15px 30px;
+    border: 1px solid var(--gold);
+    border-radius: 40px;
+    background: transparent;
+    color: var(--gold);
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.open-btn:hover {
+    background: var(--gold);
+    color: #08090d;
+    transform: scale(1.05);
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+    min-height: 90svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 25px;
+
+    background:
+        radial-gradient(circle at center, #25334b 0%, transparent 60%),
+        #08090d;
+}
+
+.hero-decoration {
+    color: var(--gold);
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 12vw, 65px);
+    color: var(--gold);
+    line-height: 1.2;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-top: 15px;
+}
+
+.hero-desc {
+    max-width: 400px;
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 2;
+    margin-top: 25px;
+}
+
+.cake {
+    font-size: 75px;
+    margin: 35px 0 20px;
+    animation: float 3s infinite ease-in-out;
+}
+
+.date-text {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-size: 10px;
+}
+
+
+/* GALLERY */
+
+.gallery-section {
+    padding: 90px 20px;
+    text-align: center;
+    background: #101827;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.section-heading p:last-child {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.upload-btn {
+    display: inline-block;
+    margin: 35px 0;
+    padding: 13px 25px;
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+    color: var(--gold);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.upload-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* Grid 2 x 2: dua foto di atas, dua foto di bawah, lebar kiri-kanan sama rata */
+.gallery {
+    /* Atur posisi fokus foto di sini: "X Y"
+       X: 0% = kiri, 50% = tengah, 100% = kanan
+       Y: 0% = atas, 50% = tengah, 100% = bawah
+       Default 50% 25% supaya wajah tidak terpotong */
+    --foto-posisi: 50% 25%;
+
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.empty-gallery {
+    grid-column: 1 / -1;
+    padding: 40px 10px;
+    border: 1px dashed #555;
+    border-radius: 15px;
+    color: var(--gray);
+    font-size: 12px;
+}
+
+.empty-gallery span {
+    font-size: 35px;
+}
+
+/* Semua kotak foto/video berukuran sama (rasio 4:5) */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    background: #08090d;
+    border: 1px solid rgba(216, 181, 109, .15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+    transition: transform .4s ease, border-color .4s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(216, 181, 109, .6);
+}
+
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--foto-posisi);
+    transition: transform .6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-item video {
+    background: #000;
+}
+
+/* Tombol hapus: ukuran cukup besar agar mudah ditekan */
+.gallery-item button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    background: rgba(0, 0, 0, .65);
+    border: 1px solid rgba(255, 255, 255, .25);
+    color: var(--white);
+    font-size: 13px;
+    line-height: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.gallery-item button:hover {
+    background: #e5484d;
+    border-color: #e5484d;
+}
+
+
+/* MESSAGE */
+
+.message-section {
+    padding: 90px 20px;
+    background: #08090d;
+}
+
+.message-card {
+    max-width: 550px;
+    margin: auto;
+    padding: 40px 25px;
+    text-align: center;
+    border: 1px solid rgba(216,181,109,.3);
+    border-radius: 18px;
+
+    background: linear-gradient(
+        145deg,
+        #151d2a,
+        #0c1018
+    );
+}
+
+.message-icon {
+    font-size: 35px;
+    color: var(--gold);
+    margin-bottom: 25px;
+}
+
+.message-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.message-content {
+    text-align: left;
+    color: #c4c4cc;
+    font-size: 12px;
+    line-height: 2.2;
+}
+
+.message-content p {
+    margin-bottom: 18px;
+}
+
+.message-content .closing {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.signature {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+}
+
+
+/* FINAL */
+
+.final-section {
+    padding: 90px 25px;
+    text-align: center;
+    background:
+        radial-gradient(circle, #26344b, transparent 65%),
+        #08090d;
+}
+
+.final-star {
+    color: var(--gold);
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.final-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: var(--gold);
+}
+
+.final-section p {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 2;
+    margin-top: 15px;
+}
+
+.final-cake {
+    font-size: 65px;
+    margin: 25px;
+}
+
+.final-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+}
+
+.footer-text {
+    margin-top: 50px !important;
+    font-size: 10px !important;
+    letter-spacing: 2px;
+}
+
+
+/* MUSIC */
+
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    z-index: 100;
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: 1px solid var(--gold);
+    background: #101827;
+    color: var(--gold);
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px var(--gold);
+    }
+
+    to {
+        text-shadow: 0 0 25px var(--gold);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+    .opening h1 {
+        font-size: 43px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .gallery-section {
+        padding: 70px 14px;
+    }
+
+    .gallery {
+        gap: 10px;
+    }
+
+    .gallery-item {
+        border-radius: 8px;
+    }
+
+    .message-card {
+        padding: 35px 20px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+}

@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- MUSIC -->
+    <audio id="bgMusic" loop>
+        <source src="Stevie_Wonder_-_Happy_Birthday_(mp3.pm).mp3" type="audio/mp3">
+    </audio>
+
+    <!-- OPENING -->
+    <section class="opening" id="opening">
+
+        <div class="opening-content">
+            <div class="star">✦</div>
+
+            <p class="small-text">A SPECIAL DAY FOR SOMEONE SPECIAL</p>
+
+            <h1>Something<br><span>Special</span> For You</h1>
+
+            <p class="opening-desc">
+                Today is not just an ordinary day.
+                Someone special deserves something special.
+            </p>
+
+            <button class="open-btn" onclick="openSurprise()">
+                Open Your Surprise ✨
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+    <main id="mainContent" class="main-content hidden">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-decoration">✦ ✧ ✦</div>
+
+            <p class="small-text">TODAY IS YOUR DAY</p>
+
+            <h1>Happy Birthday</h1>
+
+            <h2 id="birthdayName">Welson Setiago ❤️</h2>
+
+            <p class="hero-desc">
+                Another year older, another year stronger.
+                May your life be filled with happiness,
+                success, and endless blessings.
+            </p>
+
+            <div class="cake">🎂</div>
+
+            <p class="date-text">A DAY TO REMEMBER</p>
+
+        </section>
+
+
+        <!-- PHOTO / VIDEO UPLOAD -->
+        <section class="gallery-section">
+
+            <div class="section-heading">
+                <p class="small-text">YOUR BEAUTIFUL MOMENTS</p>
+                <h2>Memory Gallery</h2>
+                <p>Every moment has its own story.</p>
+            </div>
+
+            <input
+                type="file"
+                id="mediaUpload"
+                accept="image/*,video/*"
+                multiple
+                hidden
+            >
+
+            <div class="gallery" id="gallery">
+
+    <div class="gallery-item">
+        <img src="assets/photo1.jpeg.jpeg">
+</div>
+<div class="gallery-item">
+        <img src="assets/photo2.jpeg.jpeg">
+</div>
+<div class="gallery-item">
+        <img src="assets/photo3.jpeg.jpeg">
+</div>
+<div class="gallery-item">
+        <img src="assets/photo4.jpeg.jpeg">
+    </div>
+
+</div>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+        <section class="message-section">
+
+            <div class="message-card">
+
+                <div class="message-icon">✉</div>
+
+                <p class="small-text">A LITTLE MESSAGE FOR YOU</p>
+
+                <h2>Dear You,</h2>
+
+                <div class="message-content">
+
+                    <p>
+                        Happy Birthday to you!
+                        ❤️
+                    </p>
+
+                    <p>
+                        Semoga di umur yang baru ini,
+                        kamu selalu diberikan kesehatan,
+                        kebahagiaan, dan kemudahan dalam
+                        setiap langkah yang kamu ambil.
+                    </p>
+
+                    <p>
+                        Terima kasih sudah menjadi seseorang
+                        yang hebat dengan caramu sendiri.
+                        Jangan pernah berhenti bermimpi,
+                        jangan pernah menyerah dengan keadaan,
+                        dan tetaplah menjadi dirimu sendiri.
+                    </p>
+
+                    <p>
+                        Semoga semua hal baik yang sedang
+                        kamu perjuangkan bisa segera menjadi
+                        kenyataan.
+                    </p>
+
+                    <p class="closing">
+                        Keep shining, keep growing,
+                        and always be happy. ❤️
+                    </p>
+
+                </div>
+
+                <div class="signature">
+                    <p>
+                    With love, someone who cares about you.
+                    </p>
+                    <p>
+                        Keluarga besar PT Sakti Inti Perkasa
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL -->
+        <section class="final-section">
+
+            <div class="final-star">✦</div>
+
+            <h2>Make a Wish!</h2>
+
+            <p>
+                Close your eyes, make a wish,
+                and let your new chapter begin.
+            </p>
+
+            <div class="final-cake">🎂</div>
+
+            <h3>Happy Birthday! ❤️</h3>
+
+            <p class="footer-text">
+                Made with love, just for you.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- MUSIC CONTROL -->
+    <button class="music-btn hidden" id="musicBtn" onclick="toggleMusic()">
+        ♫ Music On
+    </button>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
